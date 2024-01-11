@@ -1,0 +1,353 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>CPU Scheduler</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="favicon_io (1)/apple-touch-icon.png">
+</head>
+
+<body class="is-preload">
+
+
+
+
+	<div id="wrapper">
+
+
+		<div id="main">
+
+
+			<section id="one">
+				<div class="container">
+					<header class="major">
+						<h2>CPU Scheduling Algorithms</h2>
+
+					</header>
+					<p>
+						CPU scheduling is a crucial aspect of operating system design, responsible for efficiently
+						managing the execution of processes in a computer system. The primary goal of CPU scheduling
+						algorithms is to maximize system performance, ensuring that the CPU is utilized effectively and
+						processes are executed in a fair and timely manner. </p>
+				</div>
+			</section>
+
+
+			<section id="two">
+				<div class="container">
+					<meta charset="UTF-8">
+					<meta name="viewport" content="width=device-width, initial-scale=1.0">
+					<link rel="stylesheet" href="style.css">
+					<link rel="stylesheet"
+						href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+					<h2 style="display: flex; justify-content: center;">Algorithm & Execution:</h2>
+					<form style="display: flex; justify-content: space-between;" id="algorithms">
+						<input type="radio" name="algo" id="fcfs" checked> <label for="fcfs">FCFS</label> <br>
+						<input type="radio" name="algo" id="sjf"> <label for="sjf">SJF</label> <br>
+						<input type="radio" name="algo" id="ljf"> <label for="ljf">LJF</label> <br>
+						<input type="radio" name="algo" id="rr"> <label for="rr">Round Robin</label> <br>
+						<input type="radio" name="algo" id="srjf"> <label for="srjf">SRTF</label> <br>
+						<input type="radio" name="algo" id="lrjf"> <label for="lrjf">LRTF</label> <br>
+					</form>
+					<br>
+					<table class="main-table">
+						<thead>
+							<tr>
+								<th class="process-id">Process ID</th>
+								<th class="priority hide">Priority</th>
+								<th class="arrival-time">Arrival Time</th>
+								<th class="process-time" colspan="1">Burst Time</th>
+								<th class="process-btn"><button type="button" class="add-process-btn">+</button></th>
+								<th class="process-btn"><button type="button" class="remove-process-btn">-</button></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="process-id" rowspan="2">P1</td>
+								<td class="priority hide" rowspan="2"><input type="number" min="1" step="1" value="1">
+								</td>
+								<td class="arrival-time" rowspan="2"><input type="number" min="0" step="1" value="0">
+								</td>
+								<td class="process-time cpu process-heading" colspan="">CPU</td>
+
+							</tr>
+							<tr>
+								<td class="process-time cpu process-input"><input type="number" min="1" step="1"
+										value="1"> </td>
+							</tr>
+						</tbody>
+					</table>
+					<div id="time-quantum" class="hide">
+						<br>
+						<label for="tq">Time Quantum : </label>
+						<input type="number" name="Time Quantum" id="tq" min="1" step="1" value="2">
+					</div>
+					<br>
+					<button type="button" class="add-btn">Add</button>
+					<button type="button" class="remove-btn">Delete</button>
+					<button type="button" class="calculate">Run</button>
+					<div id="output"></div>
+					<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+					<script src="script.js"></script>
+
+				</div>
+
+
+
+				<!-- Three -->
+
+				<section id="three">
+					<div class="container">
+						<h3></h3>
+						<p></p>
+						<div class="features">
+
+							<article>
+
+								<div class="box">
+									<h4 style="display: flex; justify-content: center;">First Come First Serve (FCFS)
+									</h4>
+									<p>First Come First Serve is an operating system scheduling algorithm that
+										automatically executes queued requests and processes in order of their arrival.
+										It is the easiest and simplest CPU scheduling algorithm. In this type of
+										algorithm, processes which requests the CPU first get the CPU allocation first.
+										This is managed with a FIFO queue.</p>
+									<p style="font-weight: bolder;display: flex; justify-content: center;">Steps of
+										Execution of FCFS Algorithm</p>
+
+									<P><span style="font-weight: 800;">Arrival of Processes:</span>Note the arrival time
+										for each process, marking when they enter the ready queue or the system.</P>
+									<p><span style="font-weight: 800;">Process Burst Time:</span> Determine the time
+										needed for each process to complete execution.</p>
+									<p><span style="font-weight: 800;">Sorting:</span>Arrange processes based on arrival
+										time. In FCFS, prioritize the earliest arrival. For ties, follow the arrival
+										order.</p><span id="dots"></span>
+									<span id="more">
+										<p><span style="font-weight: 800;">Execution:</span>Execute processes in sorted
+											order. Start with the earliest arrival, proceeding sequentially.</P>
+										<p><span style="font-weight: 800;">Waiting Time: </span>Calculate waiting time
+											for each process. It's the sum of burst times of processes arriving earlier.
+										</P>
+										<p><span style="font-weight: 800;">Turnaround Time: </span>Compute turnaround
+											time for each process. It includes waiting time and burst time.
+											Turnaround Time = Waiting Time + Burst Time</P>
+										<p><span style="font-weight: 800;">Average Waiting Time: </span>Average Waiting
+											Time and Turnaround Time: Find averages for all processes.
+
+											Average Waiting Time = Total Waiting Time / Number of Processes
+
+											Average Turnaround Time = Total Turnaround Time / Number of Processes</P>
+										<p><span style="font-weight: 800;">Completion:</span>Completion: Scheduling
+											concludes after executing all processes.</P>
+									</span></p>
+									<p style="color: red;font-weight: bold;" onclick="myFunction()" id="myBtn">Read
+										More.....</p>
+
+							</article>
+							<article>
+
+								<div class="box">
+									<h4 style="display: flex; justify-content: center;">Shortest Job First (SJF)</h4>
+									<p>Shortest Job First (SJF) selects and executes the process with the smallest burst
+										time from the ready queue, minimizing waiting time. In preemptive SJF, the queue
+										is sorted, and the current process may be preempted for a shorter job. Repeat
+										until all processes complete.</p>
+									<p style="font-weight: bolder;display: flex; justify-content: center;">Steps of
+										Execution of SJF Algorithm</p>
+									<P><span style="font-weight: 800;">Arrival of Processes:</span>As processes arrive
+										in the system, they are added to the ready queue.</P>
+									<p><span style="font-weight: 800;">Sorting Ready Queue</span> In the case of
+										preemptive SJF, the ready queue is sorted based on the burst times of the
+										processes in ascending order. This ensures that the process with the shortest
+										remaining burst time is at the front of the queue.</p>
+									<p><span style="font-weight: 800;">Process Execution:</span>The scheduler selects
+										the process with the shortest burst time from the ready queue to execute. In
+										preemptive SJF, this may involve preempting the currently running process if a
+										new process with a shorter burst time arrives.</p><span id="dots1"></span>
+									<span id="more1">
+										<p><span style="font-weight: 800;">Execution of Processes:</span>The selected
+											process is allowed to execute for its burst time. If it's preemptive SJF,
+											the process may be interrupted if a shorter job arrives during its
+											execution.</P>
+										<p><span style="font-weight: 800;">Updating Waiting Times:</span>The waiting
+											times of the other processes in the ready queue are updated based on the
+											time the selected process spends executing.
+										</P>
+										<p><span style="font-weight: 800;">Completion of Process: </span>Once a process
+											completes its execution, it is removed from the system, and the scheduler
+											selects the next process from the ready queue.</P>
+										<p><span style="font-weight: 800;">Repeat Steps: </span>Steps 3 to 6 are
+											repeated until all processes are completed.</P>
+									</span></p>
+									<p style="color: red;font-weight: bold;" onclick="myFunction1()" id="myBtn1">Read
+										more...</p>
+								</div>
+							</article>
+							<article>
+
+								<div class="box">
+									<h4 style="display: flex; justify-content: center;">Shortest Remaining Time First
+										(SRTF)</h4>
+									<p>Shortest remaining job first also called the shortest remaining time first is the
+										preemptive version of the shortest job first scheduling algorithm.
+										In the shortest remaining job first, the process with the smallest runtime to
+										complete (i.e remaining time) is scheduled to run next, In SRJF, a running
+										process will be preempted if a new process arrives in the CPU scheduler which
+										requires less burst time for execution.</p>
+								</div>
+							</article>
+
+							<article>
+
+								<div class="box">
+									<h4 style="display: flex; justify-content: center;">Priority Scheduling</h4>
+									<p>In Priority scheduling, there is a priority number assigned to each process.
+										In some systems, the lower the number, the higher the priority. While, in the ot
+										hers, the higher the number, the higher will be the priority. The Process with
+										the
+										higher priority among the available processes is given the CPU. There are two
+										types
+										of priority scheduling algorithm exists. One is Preemptive priority scheduling
+										while th
+										e other is Non Preemptive Priority scheduling.The priority number assigned to
+										each of the
+										process may or may not vary. If the priority number doesn't change itself
+										throughout the process,
+										it is called static priority, while if it keeps changing itself at the regular
+										intervals, it is
+										called dynamic priority.
+
+									</p>
+								</div>
+							</article>
+							<article>
+
+								<div class="box">
+									<h4 style="display: flex; justify-content: center;">Longest Job First (LJF)</h4>
+									<p>Longest Job First (LJF) is a non-preemptive scheduling algorithm. This algorithm
+										is based on the burst time of the processes. The processes are put into the
+										ready queue based on their burst times i.e., in descending order of the burst
+										times. As the name suggests this algorithm is based on the fact that the process
+										with the largest burst time is processed first. The burst time of only those
+										processes is considered that have arrived in the system until that time. Its
+										preemptive version is called Longest Remaining Time</p>
+								</div>
+							</article>
+
+							<article>
+
+								<div class="box">
+									<h4 style="display: flex; justify-content: center;">Longest Remaining Time First
+										(LRTF)</h4>
+									<p>Prerequisite – Process Management & CPU Scheduling
+										This is a pre-emptive version of Longest Job First (LJF) scheduling algorithm.
+										In this scheduling algorithm, we find the process with the maximum remaining
+										time and then process it.
+										We check for the maximum remaining time after some interval of time(say 1 unit
+										each) to check if another process having more Burst Time arrived up to that
+										time.</p>
+								</div>
+							</article>
+
+							<article>
+
+								<div class="box">
+									<h4 style="display: flex; justify-content: center;">Round Robin Scheduling</h4>
+									<p>Round Robin is the preemptive process scheduling algorithm.
+										Each process is provided a fix time to execute, it is called a quantum.
+										Once a process is executed for a given time period, it is preempted and other
+										process executes for a given time period.
+										Context switching is used to save states of preempted processes.</p>
+								</div>
+							</article>
+						</div>
+					</div>
+				</section>
+
+
+
+		</div>
+		<!--FONT AWESOME-->
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Play&display=swap" rel="stylesheet">
+		</head>
+
+		<body>
+			<footer>
+				<div class="footer">
+					<div class="rows">
+						<a href="#"><i class="fa fa-linkedin"></i></a>
+						<a href="#"><i class="fa fa-github"></i></a>
+						<a href="#"><i class="fa fa-instagram"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+					</div>
+
+					<div class="rows">
+						<ul>
+							<li><a href="#">Contact us</a></li>
+							<li><a href="#">Our Services</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+
+						</ul>
+					</div>
+
+					<div class="rows">
+						CPU Scheduler Copyright © 2024 All rights reserved || Designed By: <span
+							style="font-weight: bold;">Sunit Kapure</span>
+					</div>
+				</div>
+			</footer>
+
+
+			<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				function myFunction() {
+					var dots = document.getElementById("dots");
+					var moreText = document.getElementById("more");
+					var btnText = document.getElementById("myBtn");
+
+					if (dots.style.display === "none") {
+						dots.style.display = "inline";
+						btnText.innerHTML = "Read more";
+						moreText.style.display = "none";
+					} else {
+						dots.style.display = "none";
+						btnText.innerHTML = "Read less";
+						moreText.style.display = "inline";
+					}
+				}
+				function myFunction1() {
+					var dots = document.getElementById("dots1");
+					var moreText = document.getElementById("more1");
+					var btnText = document.getElementById("myBtn1");
+
+					if (dots.style.display === "none") {
+						dots.style.display = "inline";
+						btnText.innerHTML = "Read more";
+						moreText.style.display = "none";
+					} else {
+						dots.style.display = "none";
+						btnText.innerHTML = "Read less";
+						moreText.style.display = "inline";
+					}
+				}
+			</script>
+		</body>
+
+</html>
